@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <style type="text/css">
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12pt;
+    }
+
+    th, td {
+      border: 1pt solid #D8D9DA;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #D6EFED;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<?xml version="1.0"?>
+<data>
+  <employees>
+    <employee>
+      <name>Anupam Gupta</name>
+      <designation>Technical Writer</designation>
+      <dateOfJoining>2023-01-01</dateOfJoining>
+      <address>123 Main St</address>
+      <salary>80000</salary>
+    </employee>
+    <!-- Add more employee details as needed -->
+  </employees>
+</data>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Designation</th>
+      <th>Date of Joining</th>
+      <th>Address</th>
+      <th>Salary</th>
+    </tr>
+
+    <tr>
+        <th>Abhyash Kumar</th>
+        <th>Technical Writer</th>
+        <th>08/12/2023</th>
+        <th>Pune</th>
+        <th>600000</th>
+      </tr>
+
+  </thead>
+  <tbody>
+    <xsl:for-each select="data/employees/employee[designation='Technical Writer' and (salary > 50000 and salary < 70000)]">
+      <tr>
+        <td><xsl:value-of select="name"/></td>
+        <td><xsl:value-of select="designation"/></td>
+        <td><xsl:value-of select="dateOfJoining"/></td>
+        <td><xsl:value-of select="address"/></td>
+        <td><xsl:value-of select="salary"/></td>
+      </tr>
+    </xsl:for-each>
+  </tbody>
+</table>
+
+</body>
+</html>
